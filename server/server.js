@@ -1,12 +1,11 @@
+var path = require ('path');
 var express = require('express');
 const { response } = require('express');
 var app = express();
 
-app.get('/', function (request, response) {
+var urlpath = path.join(__dirname, '../front end')
 
-response.send('<h3>Hello world</h3>');
-
-});
+app.use(express.static(urlpath))
 
 app.get('/api/v1/categories', (req, res) =>{
     var categories = ['aerobic', 'strength', 'flexibilty', 'balance'];
@@ -17,6 +16,6 @@ app.get('/home', (req, res) => {
     res.redirect(301, '/')
 })
 
-app.listen(8080, function () {
-console.log('Listening on port 8080');
+app.listen(8000, function () {
+console.log('Listening on port 8000');
 });
