@@ -3,7 +3,7 @@ var express = require('express');
 const { response } = require('express');
 var app = express();
 
-var urlpath = path.join(__dirname, '../front end')
+var urlpath = path.join(__dirname, '../frontend/build/')
 
 app.use(express.static(urlpath))
 
