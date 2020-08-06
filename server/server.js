@@ -17,30 +17,32 @@ app.param('name', function (request, response, next) {
     next();
 });
 
-app.get('/api/teachers', (req, res) => {
-    res.json(data.teachers);
-});
-
+//Get all classes
 app.get('/api/classes/', function (req, res) {
     res.json(data.classes);
 });
 
+//Get all slots
 app.get('/api/slots/', (req, res) => {
     res.json(data.slots);
 });
 
-
+//Get all teachers
 app.get('/api/teachers', (req, res) => {
     res.json(data.teachers);
 });
 
+//Get project brief
 app.get('/api/brief', (req, res) => {
     res.json(data.brief);
 });
 
+// Re-direct home
 app.get('/home', (req, res) => {
     res.redirect(301, '/')
 })
+
+//Get teachers name
 
 app.get('/api/teachers/:name', function (request, response) {
     var room = null;
@@ -57,6 +59,7 @@ app.get('/api/teachers/:name', function (request, response) {
     }
 });
 
+// Get teachers classes
 
 app.get('/api/teachers/:classes', function (request, response) {
     var classes = null;
@@ -73,6 +76,8 @@ app.get('/api/teachers/:classes', function (request, response) {
     }
 });
 
+//Get classroom number
+
 app.get('/api/classes/:classroom', function (request, response) {
     var room = null;
     for (var i = 0; i < data.classes.length; i++) {
@@ -88,25 +93,7 @@ app.get('/api/classes/:classroom', function (request, response) {
     }
 });
 
-
-app.get('/api/categories/:name/exercises', function (request, response) {
-    var results = [];
-    var lowerName = request.params.name.parseInt();
-    for (var i = 0; i < data.exercises.length; i++) {
-        if (data.exercises[i].category === lowerName) {
-            results.push(data.exercises[i]);
-        }
-    }
-
-    for (var i = 0; i < data.exercises.length; i++) {
-        if (data.exercises[i].category === lowerName) {
-            results.push(data.exercises[i]);
-        }
-    }
-    response.json(results);
-});
-
-
+//Get time and day of classes
 
 app.get('/api/classes/:slot/slots', function (request, response) {
     var results = [];
@@ -118,8 +105,6 @@ app.get('/api/classes/:slot/slots', function (request, response) {
     }
     response.json(results);
 });
-
-
 
 
 app.listen(8000, function () {
