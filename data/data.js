@@ -90,4 +90,8 @@ var learners = [
     {id: 03, name: "Jeffery Medina", classes: [21, 24, 25, 27, 28, 30]}
 ];
 
-module.exports = {classes: classes, slots: slots, teachers: teachers, learners: learners};
+var brief = [
+    {description: "Students are required to create a design for a mock school website", subject:"Interaction Arts"}
+];
+
+module.exports = {classes: classes, slots: slots, teachers: teachers, learners: learners, brief: brief};
