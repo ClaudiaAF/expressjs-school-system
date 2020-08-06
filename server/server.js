@@ -57,6 +57,7 @@ app.get('/api/teachers/:name', function (request, response) {
     }
 });
 
+
 app.get('/api/teachers/:classes', function (request, response) {
     var classes = null;
     for (var i = 0; i < data.teachers.length; i++) {
