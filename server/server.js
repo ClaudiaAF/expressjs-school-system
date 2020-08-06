@@ -5,13 +5,10 @@ var app = express();
 var logger = require('./logger');
 const data = require('../data/data');
 const { classes } = require('../data/data');
-var authenticator = require('./authenticator');
 
 var urlpath = path.join(__dirname, '../frontend/build/')
 
 app.use(logger);
-
-app.use(authenticator);
 
 app.use(express.static(urlpath));
 
