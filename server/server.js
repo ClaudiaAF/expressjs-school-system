@@ -5,10 +5,13 @@ var app = express();
 var logger = require('./logger');
 const data = require('../data/data');
 const { classes } = require('../data/data');
+var authenticator = require('./authenticator');
 
 var urlpath = path.join(__dirname, '../frontend/build/')
 
 app.use(logger);
+
+app.use(authenticator);
 
 app.use(express.static(urlpath));
 
@@ -30,8 +33,8 @@ app.get('/api/slots/', (req, res) =>{
 });
 
 
-app.get('/api/learners', (req, res) =>{
-    res.json(data.learners);
+app.get('/api/teachers', (req, res) =>{
+    res.json(data.teachers);
 });
 
 app.get('/api/brief', (req, res) =>{
@@ -52,7 +55,22 @@ app.get('/api/teachers/:name', function (request, response) {
     }
 
     if (room == null) {
-    response.status(404).json("No room named '" +
+    response.status(404).json("No teacher named '" +
+    request.params.name + "' found.");
+        }
+});
+
+app.get('/api/teachers/:classes', function (request, response) {
+    var classes = null;
+    for (var i = 0; i < data.teachers.length; i++) {
+    if (data.teachers[i].classes === request.params.classes) {
+    classes = data.teachers[i];
+    response.json(data.teachers[i]);
+        }
+    }
+
+    if (room == null) {
+    response.status(404).json("No classroom named '" +
     request.params.name + "' found.");
         }
 });
@@ -72,32 +90,38 @@ app.get('/api/classes/:classroom', function (request, response) {
         }
 });
 
-//categories, name, exercises
 
-app.get('/api/teachers/:classes/classes', function (request, response) {
+app.get('/api/categories/:name/exercises', function (request, response) {
     var results = [];
-    var lowerName = request.params.classes.toLowerCase();
-    for (var i = 0; i < data.classes.length; i++) {
-    if (data.classes[i].teachers ===  parseInt(classes)) {
-    results.push(data.classes[i]);
-    }
-    }
-    response.json(results);
-    });
-
-app.get('/api/exercises/:id', function (request, response) {
-    var id = request.params.id;
-    var exercise = null;
+    var lowerName = request.params.name.parseInt();
     for (var i = 0; i < data.exercises.length; i++) {
-    if (data.exercises[i].id === parseInt(id)) {
-    exercise = data.exercises[i];
-    response.json(exercise);
+    if (data.exercises[i].category === lowerName) {
+    results.push(data.exercises[i]);
     }
     }
-    if (exercise == null) {
-    response.status(404).json("No exercise with id '" + id + "'found.");
-    }
-    });
+
+    for (var i = 0; i < data.exercises.length; i++) {
+        if (data.exercises[i].category === lowerName) {
+        results.push(data.exercises[i]);
+        }
+        }
+    response.json(results);
+});
+
+
+
+    app.get('/api/classes/:slot/slots', function (request, response) {
+        var results = [];
+        var slot = request.params.slot;
+        for (var i = 0; i < data.slots.length; i++) {
+        if ((data.slots[i].slot === parseInt(slot))) {
+        results.push(data.slots[i]);
+        }
+        }
+        response.json(results);
+        });
+
+    
 
 
 app.listen(8000, function () {
