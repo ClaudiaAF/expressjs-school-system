@@ -52,7 +52,7 @@ const FormPage = () => {
                                 <div className="text-center py-4 mt-3">
                                     <MDBContainer>
                                         
-                                    <p className="text-center font-weight-lighter" style={{fontSize: "10pt", marginBottom:"50px"}}>Already have an account? Log in here.</p>
+                                    <p className="text-center font-weight-lighter" style={{fontSize: "10pt", marginBottom:"50px"}}>Already have an account? Login here.</p>
                                     
                                     </MDBContainer>
                                     <MDBBtn color="cyan" type="submit">

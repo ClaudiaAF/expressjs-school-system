@@ -56,7 +56,7 @@ const DatatablePage = () => {
         office: 'Tokyo',
         age: '63',
         date: '2011/07/25',
-        salary: '$170'
+        salary: '$17044'
       },
       {
         name: 'Ashton Cox',
