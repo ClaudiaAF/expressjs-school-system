@@ -14,7 +14,10 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-image: url('./img/photo-1504275107627-0c2ba7a43dba.jfif');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   min-height: 100vh;
   display: flex;
   flex-direction: column;

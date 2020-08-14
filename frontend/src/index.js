@@ -3,10 +3,15 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import Login from './signUp_Login/Login';
+import Form from './signUp_Login/Form';
+import { BrowserRouter, Route, Link, Switch } from 'react-router-dom'
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <App >
+
+    </App>
   </React.StrictMode>,
   document.getElementById('root')
 );
