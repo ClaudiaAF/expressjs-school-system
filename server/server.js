@@ -114,7 +114,7 @@ app.get('/api/classes/learners/:learnerId', function (req, res) {
 
     if (learner, learnerId == null) {
         res.status(404).json("No learner named '" +
-            req.params.classroom + "' found.");
+            req.params.classroom + "' was found.");
     }
 });
 
