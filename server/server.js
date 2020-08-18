@@ -1,15 +1,29 @@
 var path = require('path');
+require('dotenv').config()
 var express = require('express');
 const { response } = require('express');
 var app = express();
 var logger = require('./logger');
 const data = require('../data/data');
+var cors = require('cors')
+var authenticator = require('./authenticator');
+var bodyParser = require('body-parser')
+const jwt = require("jsonwebtoken")
+
+var corsOptions = {
+    origin: '*',
+    optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+}
 
 var urlpath = path.join(__dirname, '../frontend/build/')
 
-app.use(logger);
+// app.use(logger);
+app.use(cors(corsOptions))
 
 app.use(express.static(urlpath));
+app.use(bodyParser.json());
+
+
 
 app.param('name', function (request, response, next) {
     request.lowerName = request.params.name.toLowerCase();
@@ -120,20 +134,33 @@ app.get('/api/classes/learners/:learnerId', function (req, res) {
 
 
 //login with email and password
-app.get('/api/login', function(req,res) {
-	var teacher1 = -1;
+app.get('/api/login', function (req, res) {
+    
+    var teacher1 = -1;
 
-	for (var i = data.teachers.length - 1; i >= 0; i--) {
-		if (data.teachers[i].email == req.query.email) {
-			teacher1 = i;
-		}
-	}
+    var loginDetails = req.body
+    console.log(loginDetails)
+    const token = jwt.sign({ teacher1 },process.env.ACCESS_TOKEN_SECRET)
+   
+    
 
-	if ((teacher1 != -1) && (req.query.password == data.teachers[teacher1].password)) {
-		res.json(data.teachers[teacher1].id);
-	} else {
-		res.status(404).send("Sorry, incorrect email and/or password");
-	}
+    for (var i = data.teachers.length - 1; i >= 0; i--) {
+        if (data.teachers[i].email == req.query.email) {
+            teacher1 = i;
+        }
+    }
+
+    if ((teacher1 != -1) && (req.query.password == data.teachers[teacher1].password)) {
+        res.json(data.teachers[teacher1].id);
+        res.json({ token: token })
+       
+    } 
+
+});
+
+app.post('/api/protected', authenticator, (req, res) => {
+    res.json(req.user)
+    
 });
 
 

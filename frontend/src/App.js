@@ -1,24 +1,49 @@
-import React from 'react';
-import logo from './logo.svg';
-import mdbreact from 'mdbreact'
-import { MDBContainer, MDBRow, MDBCol, MDBBtn, MDBInput } from 'mdbreact';
-import '@fortawesome/fontawesome-free/css/all.min.css'; import
-'bootstrap-css-only/css/bootstrap.min.css'; import
-'mdbreact/dist/css/mdb.css';
-import './App.css';
+import React, { Fragment } from 'react';
+import ReactDOM from 'react-dom';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 import Form from './signUp_Login/Form';
 import Login from './signUp_Login/Login';
+import DetailsCard from './dashboard/DetailsCard';
+import EditDetails from './dashboard/EditDetails';
+import './App.css';
 import Dashboard from './dashboard/Dashboard'
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-       {/* < Form /> */}
-       {/* < Login /> */}
-       {/* < Dashboard /> */}
-      </header>
-    </div>
+    <Fragment>
+    <Router>
+        <div>
+          <nav>
+            <ul>
+              <li>
+                <Link to="/home">Home</Link>
+              </li>
+              <li>
+                <Link to="/">Login</Link>
+              </li>
+              <li>
+                <Link to="/register">Register</Link>
+              </li>
+            </ul>
+          </nav>
+          <Switch>
+            <Route path="/home">
+              <Dashboard />
+            </Route>
+            <Route path="/">
+              <Login />
+            </Route>
+          </Switch>
+        </div>
+      </Router>
+
+    </Fragment>
   );
 }
 
