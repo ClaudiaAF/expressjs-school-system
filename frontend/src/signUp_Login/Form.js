@@ -1,4 +1,11 @@
 import React from "react";
+import ReactDOM from 'react-dom';
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link
+  } from "react-router-dom";
 import Index from '../index'
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import 'bootstrap-css-only/css/bootstrap.min.css';
@@ -7,6 +14,7 @@ import mdbreact from 'mdbreact'
 import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn, MDBCard, MDBCardBody } from 'mdbreact';
 import './Form.css';
 import Login from './Login'
+import Dashboard from '../dashboard/Dashboard'
 
 const FormPage = () => {
     return (
@@ -15,7 +23,7 @@ const FormPage = () => {
                 <MDBCol md="6">
                     <MDBCard>
                         <MDBCardBody>
-                            <form>
+                            <form style={{marginLeft: "200px;"}}>
                                 <p>Sign up</p>
                                 <div className="grey-text">
                                     <MDBInput
@@ -56,7 +64,9 @@ const FormPage = () => {
                                     
                                     </MDBContainer>
                                     <MDBBtn color="cyan" type="submit">
-                                        Register
+                                        <Router>
+                                    <Link to="/home"> Register</Link>
+                                    </Router>
                                     </MDBBtn>
                                 </div>
                             </form>

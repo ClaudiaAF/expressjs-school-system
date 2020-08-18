@@ -1,65 +1,25 @@
-import React from 'react';
-import { MDBDataTable, MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavbarToggler, MDBCollapse, MDBNavItem, MDBNavLink, MDBContainer, MDBMask, MDBView } from 'mdbreact';
-import { BrowserRouter as Router } from 'react-router-dom';
-import Table from './Table'
+import React, { Fragment } from 'react';
+import ReactDOM from 'react-dom';
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link
+} from "react-router-dom";
+import DetailsCard from './DetailsCard';
+import EditDetails from './EditDetails';
+import Table from './Table';
+import From from '../signUp_Login/Form';
+import Login from '../signUp_Login/Login';
+import './Dashboard.css';
 
-class Dashboard extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      collapse: false,
-      isWideEnough: false,
-    };
-    this.onClick = this.onClick.bind(this);
-  }
-
-  onClick() {
-    this.setState({
-      collapse: !this.state.collapse,
-    });
-  }
-
-  render() {
+function App() {
     return (
-      <div>
-        <header>
-          <Router>
-            <MDBNavbar color="bg-primary" fixed="top" dark expand="md" scrolling transparent>
-              <MDBNavbarBrand href="/">
-                <strong>Navbar</strong>
-              </MDBNavbarBrand>
-              {!this.state.isWideEnough && <MDBNavbarToggler onClick={this.onClick} />}
-              <MDBCollapse isOpen={this.state.collapse} navbar>
-                <MDBNavbarNav left>
-                  <MDBNavItem active>
-                    <MDBNavLink to="#">Home</MDBNavLink>
-                  </MDBNavItem>
-                  <MDBNavItem>
-                    <MDBNavLink to="#">Links</MDBNavLink>
-                  </MDBNavItem>
-                  <MDBNavItem>
-                    <MDBNavLink to="#">Profiles</MDBNavLink>
-                  </MDBNavItem>
-                </MDBNavbarNav>
-              </MDBCollapse>
-            </MDBNavbar>
-          </Router>
-
-          <MDBView>
-            <MDBMask className="flex-center flex-column text-white text-center">
-              
-            </MDBMask>
-          </MDBView>
-        </header>
-
-        <main>
-          <MDBContainer className="text-center my-5">
-          < Table />
-          </MDBContainer>
-        </main>
-      </div>
+        <Fragment >
+            {/* <DetailsCard /> */}
+            <Table />
+        </Fragment>
     );
-  }
 }
 
-export default Dashboard;
+export default App;

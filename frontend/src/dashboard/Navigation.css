@@ -1,0 +1,46 @@
+.skip-to-main-content {
+    margin-left: -900px;
+}
+
+/* Fix navigation to create a sticky nav bar */
+
+nav {
+    position: fixed;
+    margin-top: -255px;
+    width: 100%;
+    background-color: #1a1a1a;
+    padding: 0 25px;
+}
+
+.mb-5, .my-5 {
+    margin-bottom: 3rem!important;
+    margin-right: 59rem !important;
+    float: left !important;
+}
+
+@media (min-width: 1200px) {
+    .container, .container-lg, .container-md, .container-sm, .container-xl {
+        max-width: 839px;
+        float: left;
+    }
+}
+
+.MuiPaper-root {
+    margin-top: -20%;
+    
+}
+
+.makeStyles-root-2 {
+    margin-left: 50%;
+}
+
+.MuiCardContent-root{
+    margin: 10%;
+}
+
+.MuiInputBase-input {
+    background-color: white;
+    padding: 6%;
+    border-radius: 9px;
+    color: black;
+}
