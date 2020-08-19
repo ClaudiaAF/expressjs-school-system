@@ -1,10 +1,17 @@
-.MuiTable-root{
-    margin-top: 6rem;
-}
-
 .MuiPaper-root{
-    margin-top: 13%;
-    margin-left: 22%;
+    margin-top: 3%;
+    margin-left: 21%;
     margin-bottom: 3%;
     width: 53%;
 } 
+
+h1{
+    margin-top: 10%;
+    margin-left: 10%;
+    font-weight: 500;
+    color: white;
+}
+
+.MuiPaper-root .makeStyles-root-15 .MuiPaper-elevation1 {
+    width: 53%;
+}

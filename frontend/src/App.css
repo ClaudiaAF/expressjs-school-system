@@ -39,3 +39,24 @@
     transform: rotate(360deg);
   }
 }
+
+.navlink{
+  text-decoration: none;
+  color: white;
+  font-size: 16pt;
+}
+
+li{
+  padding-top: 1.7%;
+  margin-left: 6%;
+}
+
+.logo{
+  height: 100px;
+  width: 100px;
+  background-image: url(./img/Annotation\ 2020-08-18\ 215422.jpg);
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  float: left;
+}

@@ -4,6 +4,7 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
+  NavLink,
   Link
 } from "react-router-dom";
 import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn, MDBCard, MDBCardBody } from 'mdbreact';
@@ -46,6 +47,10 @@ const FormPage = () => {
 
   return (
     <MDBContainer>
+      <div className="heading-cover">
+        <div className="image-cover"></div>
+      <h1 className="heading">Edgewood Academy Portal</h1>
+      </div>
       <MDBRow>
         <MDBCol md="8">
           <MDBCard>
@@ -53,20 +58,20 @@ const FormPage = () => {
               <form>
                 <p className="h4 text-center py-4">Log in</p>
                 <div className="grey-text">
-                  
+
                   <MDBInput
                     label="Your email"
-                    
+
                     group
                     type="email"
                     validate
                     error="wrong"
                     success="right"
                   />
-                  
+
                   <MDBInput
                     label="Your password"
-                    
+
                     group
                     type="password"
                     validate
@@ -74,7 +79,10 @@ const FormPage = () => {
                 </div>
                 <div className="text-center py-4 mt-3">
                   <MDBBtn color="cyan" type="submit">
-                    Log in
+                    <Router>
+                      <NavLink to="/home" activeStyle={{ color: "white" }}> Login</NavLink>
+                    </Router>
+
                   </MDBBtn>
                 </div>
               </form>

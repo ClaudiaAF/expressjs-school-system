@@ -4,6 +4,7 @@ import {
     BrowserRouter as Router,
     Switch,
     Route,
+    NavLink,
     Link
   } from "react-router-dom";
 import Index from '../index'
@@ -60,12 +61,11 @@ const FormPage = () => {
                                 <div className="text-center py-4 mt-3">
                                     <MDBContainer>
                                         
-                                    <p className="text-center font-weight-lighter" style={{fontSize: "10pt", marginBottom:"50px"}}>Already have an account? Login here.</p>
-                                    
+                                                                     
                                     </MDBContainer>
                                     <MDBBtn color="cyan" type="submit">
                                         <Router>
-                                    <Link to="/home"> Register</Link>
+                                    <NavLink to="/home" activeStyle={{color: "white"}}> Register</NavLink>
                                     </Router>
                                     </MDBBtn>
                                 </div>
