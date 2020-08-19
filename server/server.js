@@ -78,20 +78,15 @@ app.get('/api/details/:classId', function (req, res) {
     var lesson = data.classes.find((lesson) => lesson.id === classId);
 
     results.subject = lesson.subject;
-
     //class teacher
     var teacher = data.teachers.find((teach) => teach.classes.includes(classId));
     results.teacher = teacher.name;
-
     //class students
     var students = data.learners.filter((student) => student.classes.includes(classId));
-
     results.learners = students;
-
     //class time
     var classTime = data.slots.find((time) => time.slot === lesson.slot);
     results.times = classTime.times;
-
     //class number
     results.classroom = lesson.classroom;
 
