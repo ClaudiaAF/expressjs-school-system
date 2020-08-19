@@ -26,7 +26,7 @@ const FormPage = () => {
     fetch("http://localhost:8000/api/login", {
       method: 'POST',
       headers: {
-        'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiUnVhbiIsImlkIjoiMTIzMzQ1NTQiLCJpYXQiOjE1OTc2Njg5OTR9.iZU3sUPih1GhYm5M4d8EklJDHFoO2Hoardn6QI6GnKU'
+        'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiTXIgSHVudCIsInBhc3N3b3JkIjoiMTIzNCIsImlhdCI6MTUxNjIzOTAyMn0.WZ-r-y16SftFtT_25LIdpRkJbkMCLMvbeIflx808IuQ'
         // 'Content-Type': 'application/x-www-form-urlencoded',
       },
     })
@@ -61,26 +61,28 @@ const FormPage = () => {
 
                   <MDBInput
                     label="Your email"
-
+                    onChange={e => onNameChange(e)}
                     group
-                    type="email"
+                    type="text"
                     validate
                     error="wrong"
                     success="right"
+                    value={name}
                   />
 
                   <MDBInput
                     label="Your password"
-
+                    onChange={e => onPasswordChange(e)}
                     group
                     type="password"
                     validate
+                    value={password}
                   />
                 </div>
                 <div className="text-center py-4 mt-3">
-                  <MDBBtn color="cyan" type="submit">
+                  <MDBBtn color="cyan" type="submit" onClick={() => submitForm()}>
                     <Router>
-                      <NavLink to="/home" activeStyle={{ color: "white" }}> Login</NavLink>
+                      <NavLink to="/home" style={{ color: "white" }}> Login</NavLink>
                     </Router>
 
                   </MDBBtn>

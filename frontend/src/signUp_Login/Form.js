@@ -65,7 +65,7 @@ const FormPage = () => {
                                     </MDBContainer>
                                     <MDBBtn color="cyan" type="submit">
                                         <Router>
-                                    <NavLink to="/home" activeStyle={{color: "white"}}> Register</NavLink>
+                                    <NavLink to="/home" style={{color: "white"}}> Register</NavLink>
                                     </Router>
                                     </MDBBtn>
                                 </div>

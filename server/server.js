@@ -134,29 +134,13 @@ app.get('/api/classes/learners/:learnerId', function (req, res) {
 
 
 //login with email and password
-app.get('/api/login', function (req, res) {
-    
-    var teacher1 = -1;
-
+app.post('/api/login', (req, res) => {
     var loginDetails = req.body
     console.log(loginDetails)
-    const token = jwt.sign({ teacher1 },process.env.ACCESS_TOKEN_SECRET)
-   
-    
-
-    for (var i = data.teachers.length - 1; i >= 0; i--) {
-        if (data.teachers[i].email == req.query.email) {
-            teacher1 = i;
-        }
-    }
-
-    if ((teacher1 != -1) && (req.query.password == data.teachers[teacher1].password)) {
-        res.json(data.teachers[teacher1].id);
-        res.json({ token: token })
-       
-    } 
-
-});
+    const token = jwt.sign({ "name": "Mr Hunt", "password": "1234" }, process.env.ACCESS_TOKEN_SECRET)
+    res.cookie("token", token)
+    res.json({ token: token })
+  })
 
 app.post('/api/protected', authenticator, (req, res) => {
     res.json(req.user)
