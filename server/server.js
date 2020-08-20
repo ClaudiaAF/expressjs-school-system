@@ -12,17 +12,16 @@ const jwt = require("jsonwebtoken")
 
 var corsOptions = {
     origin: '*',
-    optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+    optionsSuccessStatus: 200
 }
 
 var urlpath = path.join(__dirname, '../frontend/build/')
 
-// app.use(logger);
 app.use(cors(corsOptions))
 
 app.use(express.static(urlpath));
-app.use(bodyParser.json());
 
+app.use(bodyParser.json());
 
 
 app.param('name', function (request, response, next) {
@@ -56,7 +55,6 @@ app.get('/home', (req, res) => {
 })
 
 //Get teachers name
-
 app.get('/api/teachers/:name', function (req, res) {
     var room = null;
     for (var i = 0; i < data.teachers.length; i++) {
@@ -112,7 +110,7 @@ app.get('/api/classes/teachers/:teacherId', function (req, res) {
 // Get students in a specific class
 app.get('/api/classes/learners/:learnerId', function (req, res) {
     var learnerId = parseInt(req.params.learnerId, 10);
-    var learner = data.learners.find((l) => l.id === learnerId);
+    var learner = data.learners.find((learner) => learner.id === learnerId);
 
     var classList = [];
     for (var i = 0; i < learner.classes.length; i++) {
@@ -135,14 +133,12 @@ app.post('/api/login', (req, res) => {
     const token = jwt.sign({ "name": "Mr Hunt", "password": "1234" }, process.env.ACCESS_TOKEN_SECRET)
     res.cookie("token", token)
     res.json({ token: token })
-  })
+})
 
 app.post('/api/protected', authenticator, (req, res) => {
     res.json(req.user)
-    
+
 });
-
-
 
 //Get classroom number
 

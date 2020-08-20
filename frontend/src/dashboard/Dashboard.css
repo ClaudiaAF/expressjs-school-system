@@ -1,17 +1,120 @@
-.MuiPaper-root{
-    margin-top: 3%;
-    margin-left: 21%;
-    margin-bottom: 3%;
-    width: 53%;
-} 
 
-h1{
-    margin-top: 10%;
-    margin-left: 10%;
-    font-weight: 500;
-    color: white;
+h1 {
+    text-align: center;
+    margin: 11.5rem 0 0.625rem 0;
 }
 
-.MuiPaper-root .makeStyles-root-15 .MuiPaper-elevation1 {
-    width: 53%;
+table {
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1), 0px 10px 20px rgba(0, 0, 0, 0.05),
+      0px 20px 20px rgba(0, 0, 0, 0.05), 0px 30px 20px rgba(0, 0, 0, 0.05);
+    font-size: 14px;
+    margin-left:5%;
+  }
+  
+  th {
+    color: #ffffff;
+    background: #39a2fb;
+    font-weight: 700;
+    padding-left: 62px;
+  }
+  
+  tr {
+    background: #fff;
+  }
+  
+  tr:hover {
+    background: #f4f4f4;
+  }
+  
+  td {
+    word-wrap: break-word;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  /*--------------------------------------------------------------
+    # Small and medium screens
+    --------------------------------------------------------------*/
+  @media all and (max-width: 900px) {
+    table,
+    thead,
+    tbody,
+    th,
+    td,
+    tr {
+      display: block;
+    }
+  
+    thead tr {
+      position: absolute;
+      top: -9999px;
+      left: -9999px;
+    }
+  
+    table {
+      box-shadow: none;
+    }
+  
+    tr {
+      margin: 0 0 1rem 0;
+      box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.12), 0 1px 2px 0 rgba(0, 0, 0, 0.24);
+      border-top: 5px solid #39a2fb;
+      border-radius: 7px;
+      padding-right: 5px;
+      margin-left: 25;
+    }
+  
+    tr:hover {
+      background: #fff;
+    }
+  
+    td {
+      border: none;
+      position: relative;
+      padding-left: 50%;
+      text-align: right;
+    }
+  
+    td:before {
+      position: absolute;
+      top: 5px;
+      left: 10px;
+      width: 45%;
+      padding-right: 10px;
+      white-space: nowrap;
+      content: attr(data-title);
+      font-weight: bold;
+      text-align: left;
+    }
+  }
+h1{
+    color: white;
+    margin-right: 60%;
+    margin-bottom: 2%;
+    font-weight: 500;
+}
+
+.cover{
+    overflow-y: scroll; 
+    height:400px;
+    width: 60%;
+    background-color: white;
+    padding: 3%;
+    margin-left: 19%;
+    overflow:auto; 
+}
+.columnheader{
+    margin-left: 2%;
+}
+.header h3{
+    display: inline;
+    color: white;
+    
+}
+
+.header{
+    background-color: rgb(93, 153, 251);
+    width: 53.5%;
+    padding: 1%;
+    position:absolute;
+    
 }

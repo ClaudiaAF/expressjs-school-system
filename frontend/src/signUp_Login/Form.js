@@ -15,7 +15,6 @@ import mdbreact from 'mdbreact'
 import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn, MDBCard, MDBCardBody } from 'mdbreact';
 import './Form.css';
 import Login from './Login'
-import Dashboard from '../dashboard/Dashboard'
 
 const FormPage = () => {
     return (
