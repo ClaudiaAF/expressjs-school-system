@@ -7,12 +7,11 @@ import {
   NavLink,
   Link
 } from "react-router-dom";
-import Form from './signUp_Login/Form';
-import Login from './signUp_Login/Login';
-import DetailsCard from './dashboard/DetailsCard';
-import Students from './dashboard/Students';
+import Login from './Components/Login';
+import DetailsCard from './Components/DetailsCard';
+import Students from './Components/Students';
 import './App.css';
-import Dashboard from './dashboard/Dashboard';
+import Dashboard from './Components/Dashboard';
 
 function App() {
   return (

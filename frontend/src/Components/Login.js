@@ -1,16 +1,20 @@
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  NavLink,
-  Link
-} from "react-router-dom";
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    NavLink,
+    Link
+  } from "react-router-dom";
+import Index from '../index'
+import '@fortawesome/fontawesome-free/css/all.min.css';
+import 'bootstrap-css-only/css/bootstrap.min.css';
+import 'mdbreact/dist/css/mdb.css';
+import mdbreact from 'mdbreact'
 import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn, MDBCard, MDBCardBody } from 'mdbreact';
-import Form from './Form';
-import Index from '../index';
-import './Form.css'
+
+import './Form.css';
 
 
 const FormPage = () => {
