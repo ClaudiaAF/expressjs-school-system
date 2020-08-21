@@ -49,7 +49,7 @@ const FormPage = () => {
     <MDBContainer>
       <div className="heading-cover">
         <div className="image-cover"></div>
-      <h1 className="heading">Edgewood Academy Portal</h1>
+      <h1 className="heading-title">Edgewood Academy Portal</h1>
       </div>
       <MDBRow>
         <MDBCol md="8">
@@ -92,7 +92,6 @@ const FormPage = () => {
           </MDBCard>
         </MDBCol>
       </MDBRow>
-      <Form />
     </MDBContainer>
   );
 };

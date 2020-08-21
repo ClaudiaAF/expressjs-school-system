@@ -13,6 +13,15 @@ nav {
     padding: 23px 45px;
 }
 
+dl, ol, ul {
+    margin-top: 33px;
+    margin-bottom: 1rem;
+}
+
+nav li{
+    display: inline;
+}
+
 .mb-5, .my-5 {
     margin-bottom: 3rem!important;
     margin-right: 59rem !important;
